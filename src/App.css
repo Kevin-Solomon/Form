@@ -1,5 +1,16 @@
-
-.App{
+.bg-form{
+	background-image: url("presidency uni3.jpg");
+	display: flex;
+	background-size:cover;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	align-items: center;
+	justify-content: center;
+}	
+.form-div{
 	width: 470px;
 	height: 550px;
 	padding: 60px 35px 35px 35px;
@@ -96,3 +107,30 @@
 .submit:active{
 	background-color: cyan;
 }
+
+/*CSS for displaying cards containing the student data*/
+.card {
+	background-color:blueviolet;
+	float: left;
+	width: calc(25% - 20px);
+	padding: 10px;
+	border-radius: 10px;
+	margin: 10px;
+	height: 200px;
+ }
+ .card p {
+	font-size: 18px;
+ }
+ .displayCSV:after {
+	content: "";
+	display: table;
+	clear: both;
+ }
+
+ @media screen and (max-width: 600px) {
+	.card {
+	   width: 100%;
+	}
+ }
+  
+  
