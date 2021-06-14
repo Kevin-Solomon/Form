@@ -33,7 +33,7 @@ custom2btn.addEventListener("click", function() {
 file2btn.addEventListener("change", function(){
 	if(file2btn.value){
 		// eslint-disable-next-line no-useless-escape
-		custom2txt.innerHTML = file2btn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+		custom2txt.innerHTML = file2btn.files.length+" File(s) uploaded.";
 	}else{
 		custom2txt.innerHTML = "No file choose, yet.";
 	}

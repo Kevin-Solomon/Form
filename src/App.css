@@ -108,21 +108,27 @@
 	background-color: cyan;
 }
 
+a{
+	text-decoration: none;
+}
+
 /*CSS for displaying cards containing the student data*/
 .card {
-	background-color:blueviolet;
+	background-color:gainsboro;
 	float: left;
-	width: calc(25% - 20px);
-	padding: 10px;
-	border-radius: 10px;
+	width: 15%;
+	padding: 15px;
+	text-align: center;
 	margin: 10px;
-	height: 200px;
+	height:260px;
  }
+ 
  .card p {
-	font-size: 18px;
+	font-size: 15px;
  }
  .displayCSV:after {
 	content: "";
+	
 	display: table;
 	clear: both;
  }
