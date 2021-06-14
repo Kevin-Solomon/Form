@@ -38,7 +38,7 @@ window.addEventListener("load",function(){
                           reader.readAsDataURL(file);
                           readCSV(stuDiv);
                
-                } 
+                
                  
         
     
@@ -72,6 +72,7 @@ window.addEventListener("load",function(){
                 }
                 
             } 
+        }
                 else {
                 //error message for unsupported browsers
                     alert("This browser does not support HTML5.");
