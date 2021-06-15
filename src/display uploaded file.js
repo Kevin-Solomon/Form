@@ -21,7 +21,9 @@ window.addEventListener("load",function(){
             function readCSV(file){
                 console.log("read csv");
                 var rows = file.result.split("\n");
+                console.log(rows.length);
                 for (var i = 1; i < rows.length-1; i++) {
+                    console.log(i);
                     //file data split into rows
                     var cells = rows[i].split(",");
                        
