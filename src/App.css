@@ -122,7 +122,10 @@ a{
 	margin: 10px;
 	height:260px;
  }
- 
+ .card img{
+	 width: 140px;
+	 height: 170px;
+ }
  .card p {
 	font-size: 15px;
  }
