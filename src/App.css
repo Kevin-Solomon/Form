@@ -1,3 +1,4 @@
+
 .bg-form{
 	background-image: url("presidency uni3.jpg");
 	display: flex;
@@ -12,8 +13,8 @@
 }	
 .form-div{
 	width: 470px;
-	height: 550px;
-	padding: 60px 35px 35px 35px;
+	height: 580px;
+	padding: 55px 35px 35px 35px;
 	
 	background-color:rgba(5, 5, 5, 0.767);
 	box-shadow: 13px 13px 20px rgba(0, 0, 0, 0.315);
@@ -23,8 +24,8 @@
 	background: url("presidency logo.png");
 	background-size: cover;
 	background-color: white;
-	width: 130px;
-	height: 130px;
+	width: 100px;
+	height: 100px;
 	margin: auto;
 	box-shadow: 0px 0px 2px rgb(0, 0, 0) ,
 	0px 0px 5px white,
@@ -34,20 +35,95 @@
 }
 .title{
 	text-align: center;
-	font-size: 28px;
-	padding-top: 24px;
+	font-size: 22px;
+	padding-top: 5px;
 	letter-spacing: 0.3px;
 	color: aliceblue;
 }
 
+/*CSS for company name and ctc*/
+.wrapper {
+	position: relative;
+	height: 100%;
+	width:100%;
+	border: none;
+	padding: 10px 5px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	letter-spacing: 1px;
+	font-weight: bold;
+	color:aliceblue;
+	display: flex;
+}
 
+.wrapper.companyDetail{
+	width:100%;
+	position: relative;	
+}
+.wrapper .companyDetail input{
+	height: 100%;
+	width:95%;
+	border:none;
+	background: none;
+	font-size: 15px;
+	color: aliceblue;
+	padding: 10px 15px;
+	border-bottom: 2px solid silver;
+	outline: none;
+}
+.wrapper #cName-div label{
+	position:absolute;
+	bottom: 20px;
+	left: 5px;
+	font-size: 15px;
+	color:rgb(227, 232, 236);
+	pointer-events: none;
+	transition: all 0.3s ease;
+}
+.wrapper #ctc-div label{
+	position:absolute;
+	bottom: 20px;
+	left: 50%;
+	font-size: 15px;
+	color:rgb(227, 232, 236);
+	pointer-events: none;
+	transition: all 0.3s ease;
+}
 
-.browse1,.browse2,.label{
-	margin-top: 25px;
-	margin-bottom: 25px;
+#cName-div input:focus~label, #ctc-div input:focus~label,
+#cName-div input:valid~label,#ctc-div input:valid~label{
+	transform: translateY(-25px);
+	font-size:10px;
+	background-color: black;
+	color:aqua;
+	
+}
+/*End of input text css*/
+
+.companyLogo{
+	margin-top: 12px;
+	margin-left: 7%;
+	margin-bottom: 12px;
 	border-radius: 5px;
-	box-shadow: inset 8px 8px 8px rgb(255, 255, 255),
-	inset -8px -8px -8px rgb(255, 255, 255); 
+	width: 87%;
+	box-shadow: inset 6px 6px 6px rgb(255, 255, 255),
+	inset -6px -6px -6px rgb(255, 255, 255); 
+	padding: 5px 15px;
+	border: 2px solid rgba(245, 255, 250, 0.63);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 15px;
+	font-weight: bold;
+	color: black;
+
+}
+
+.browse1,.browse2{
+	margin-top: 20px;
+	margin-bottom: 12px;
+	border-radius: 5px;
+	box-shadow: inset 6px 6px 6px rgb(255, 255, 255),
+	inset -6px -6px -6px rgb(255, 255, 255); 
 	padding: 5px 15px;
 	border: 2px solid rgba(245, 255, 250, 0.63);
 	text-transform: uppercase;
@@ -56,14 +132,15 @@
 	color: black;
 
 }
-.browse1,.browse2,.label:active{
-	color: darkslategrey;
+.browse1,.browse2,.companyLogo,.label:active{
+	color: whitesmoke;
 }
 
-#custombut1,#custombut2{
+
+#custombut1,#custombut2,#companybut1{
 	color:darkslategray;
 	cursor: pointer;
-	padding: 5px 20px;
+	padding: 5px 15px;
 }
 #custombut1:hover{
 	background-color: mintcream;
@@ -73,13 +150,18 @@
 	background-color:mintcream ;
 	color: black;
 }
+#companybut1:hover{
+	background-color:mintcream ;
+	color: black;
+}
 
-#customtxt1,#customtxt2{
+#customtxt1,#customtxt2,#customtxt3{
 	margin-left: 10px;
 	font-family: sans-serif;
-  font-size: small;
+  font-size:smaller;
 	color: mintcream;
 }
+
 
 
 .submit{
@@ -88,9 +170,9 @@
 	cursor: pointer;
 	display: block;
 	margin:20px auto;
-	padding: 10px 30px;
+	padding: 8px 26px;
 	border-radius: 25px;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 700;
 	font-family: "Lato",sans-serif;
 	color:white;
@@ -114,7 +196,6 @@ a{
 
 /*CSS for displaying cards containing the student data*/
 .card {
-	
 	float: left;
 	width: 15%;
 	padding: 15px;
@@ -126,6 +207,7 @@ a{
 	 width: 140px;
 	 height: 170px;
  }
+ 
  .card p {
 	font-size: 15px;
  }
@@ -141,5 +223,3 @@ a{
 	   width: 100%;
 	}
  }
-  
-  

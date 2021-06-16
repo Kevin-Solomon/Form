@@ -16,19 +16,37 @@ export default class App extends React.Component {
 		
 		
 		<form className="csvForm" action="">
-					<div className="browse1">
-							<input type="file" name='file1' id="file1" accept=".csv"  placeholder="browse1file" hidden="hidden"  />
-							<button type="button"  id="custombut1">CHOOSE FILE 1</button>
+		
+					<div className="browse1" >
+							<input type="file" name='file1' id="file1" accept=".csv"  placeholder="browse1file" hidden="hidden"  required/>
+							<button type="button"  id="custombut1">UPLOAD CSV File</button>
 							<span id="customtxt1">No file chosen, yet.</span>
 					</div>
 					<div className="browse2">
-							<input type="file" name='file2' id="file2"  webkitdirectory="true" multiple placeholder="browse2file"  hidden="hidden"  />
-							<button type="button" id="custombut2">CHOOSE FILE 2</button>
-							<span id="customtxt2">No file chosen, yet.</span>							
+							<input type="file" name='file2' id="file2"  webkitdirectory="true" multiple placeholder="browse2file"  hidden="hidden"  required/>
+							<button type="button" id="custombut2">UPLOAD IMAGE Folder</button>
+							<span id="customtxt2">No files chosen, yet.</span>							
+					</div>
+					<div class="wrapper" >
+					<div class="companyDetail" id="cName-div">
+						<input type="text" required/>
+						<label>Company Name</label>
+					</div>					
+					
+					<div class="companyDetail" id="ctc-div">
+						<input type="text" required/>
+						<label>CTC (in Lakhs)</label>
+					</div>
+					</div><div className="companyLogo">
+							<input type="file" name='file3' id="file3"  placeholder="companyLogo1"  hidden="hidden"  required/>
+							<button type="button"  id="companybut1">COMPANY LOGO</button>
+							<span id="customtxt3">No file chosen, yet.</span>
 					</div>
 					
-					<a href="#dvCSV" ><button type="button" id="upload" className="submit" >Submit</button></a>
-		
+
+					
+
+				<a href="#dvCSV" ><button type="button" id="upload" className="submit" >Submit</button></a>
 		</form>
 		
 		</div>
