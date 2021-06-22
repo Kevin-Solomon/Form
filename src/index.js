@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './select file.js';
-import './display uploaded file.js';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

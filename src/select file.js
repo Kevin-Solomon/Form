@@ -25,8 +25,6 @@ window.addEventListener("load",function(){
 	}
 	});
 
-
-
 	custom2btn.addEventListener("click", function() {
 	file2btn.click();
 	});
