@@ -10,6 +10,8 @@ const axios = require('axios');
 
 class App extends Component {
 
+
+  
   submitHandler(){
    console.log("hello");
     axios.post('http://localhost:5001/auth/signup')
@@ -34,14 +36,14 @@ class App extends Component {
         <form className="csvForm" action="" id="basic-form">
       
           <div className="browse1" >
-              <input type="file" className='file1' id="file1" accept=".csv"  placeholder="browse1file" hidden="hidden"  required/>
+              <input type="file" className='file1' accept=".csv"  placeholder="browse1file" hidden="hidden"  required/>
               <button type="button"  id="custombut1">UPLOAD CSV File</button>
               <span id="customtxt1">No file chosen, yet.</span><br/>
               <span className="csv_img_msg"></span>
             </div>
             
             <div className="browse2">
-                <input type="file" className='file2' id="file2"  webkitdirectory="true" multiple placeholder="browse2file"  hidden="hidden"  required/>
+                <input type="file" className='file2'  webkitdirectory="true" multiple placeholder="browse2file"  hidden="hidden"  required/>
                 <button type="button" id="custombut2">UPLOAD IMAGE Folder</button>
                 <span id="customtxt2">No files chosen, yet.</span><br/>
                 <span className="csv_img_msg"></span>
@@ -60,7 +62,7 @@ class App extends Component {
                 <span className="csv_img_msg"></span>
             </div>
             </div><div className="companyLogo">
-                <input type="file" className='file3' id="file3"  placeholder="companyLogo1"  hidden="hidden"  required/>
+                <input type="file" className='file3' placeholder="companyLogo1"  hidden="hidden"  required/>
                 <button type="button"  id="companybut1">COMPANY LOGO</button>
                 <span id="customtxt3">No file chosen, yet.</span><br/>
                 <span className="csv_img_msg"></span>

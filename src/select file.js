@@ -12,49 +12,42 @@ window.addEventListener("load",function(){
 	//to select the file button under the ordinary button "custom1btn"
 	custom1btn.addEventListener("click", function() {
 	file1btn.click();
-	});
-	//to display whether file is chosen
 	file1btn.addEventListener("change", function(){
-	if(file1btn.value){ 
-		// eslint-disable-next-line no-useless-escape
-		custom1txt.innerHTML = file1btn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
-
-	}else{
-		custom1txt.innerHTML = "No file chosen, yet.";
-		
-	}
+		if(file1btn.value){ 
+			// eslint-disable-next-line no-useless-escape
+			custom1txt.innerHTML = file1btn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+	
+		}else{
+			custom1txt.innerHTML = "No file chosen, yet.";
+			
+		}
+		});
 	});
-
+	
+	//to display whether file is chosen
 	custom2btn.addEventListener("click", function() {
 	file2btn.click();
+	file2btn.addEventListener("change", function(){
+		if(file2btn.value){
+			// eslint-disable-next-line no-useless-escape
+			custom2txt.innerHTML = file2btn.files.length+" File(s) uploaded.";
+		}else{
+			custom2txt.innerHTML = "No files chosen, yet.";
+		}
+		});
 	});
 
 	//to display the uploaded filename
-	file2btn.addEventListener("change", function(){
-	if(file2btn.value){
-		// eslint-disable-next-line no-useless-escape
-		custom2txt.innerHTML = file2btn.files.length+" File(s) uploaded.";
-	}else{
-		custom2txt.innerHTML = "No files chosen, yet.";
-	}
-	});
-
-	if(company1btn){
-		company1btn.addEventListener("click", function() {
-			file3btn.click();
-		});	
-	}
-
-	  
-
-	file3btn.addEventListener("change", function(){
-		if(file3btn.value){ 
-		// eslint-disable-next-line no-useless-escape
-		custom3txt.innerHTML = file3btn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
-	
-		}else{
-		custom3txt.innerHTML = "No file chosen, yet.";
-		}
-	});
-  
+	company1btn.addEventListener("click", function() {
+		file3btn.click();
+		file3btn.addEventListener("change", function(){
+			if(file3btn.value){ 
+			// eslint-disable-next-line no-useless-escape
+			custom3txt.innerHTML = file3btn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+			
+			}else{
+				custom3txt.innerHTML = "No file chosen, yet.";
+			}
+		});
+	});	
 });
