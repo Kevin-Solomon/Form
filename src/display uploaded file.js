@@ -1,34 +1,68 @@
-
 window.addEventListener("load",function(){
+    const axios = require('axios');
     //this file is to display the template
     const submitbtn = document.getElementById('upload');
     
     submitbtn.addEventListener("click", function(e) {
+        e.preventDefault();
         //the form elements are stored in the below variables
         var p_csv=document.getElementsByClassName("csv_img_msg");
         var fileUpload = document.getElementById("file1");
-        var imgsUpload = document.getElementById("file2").files;
+        var imgsUpload = document.getElementById("file2");
         var companyN = document.getElementById("cname_input");
         var ctc = document.getElementById("ctc_input");
         var cLogo = document.getElementById("file3");
-        var isNumber = /^\d*\.?\d+$/.test(ctc.value);               //to check if CTC entered is a numeric or not
+        //var isNumber = /^\d*\.?\d+$/.test(ctc.value);               //to check if CTC entered is a numeric or not
         
-        //to check if filereader is supported by the browser
+        //to check if file reader is supported by the browser
         if (typeof (FileReader) != "undefined") {
             //check if all the form elements are not null, then only display the congratulations template
-            if(fileUpload.files.length!==0 && imgsUpload.length!==0 && cLogo.files.length!==0 && companyN.value!==null){
+            if(fileUpload.files.length!==0 && imgsUpload.files.length!==0 && cLogo.files.length!==0 && companyN.value!==null){
                 //to remove the form validations
-                for(var n=0;n<p_csv.length;n++){
-                    p_csv[n].innerHTML="";
-                }
-                
-                //store the div element in a variable
                 var tempalateDiv = document.getElementById("temp-div");
                 var mailDiv = document.getElementById("mail");
                 mailDiv.style.display="block"; 
-                tempalateDiv.style.display="block";    
-                var mainDiv = document.getElementById("dvCSV");
+                tempalateDiv.style.display="block";
+                for(var n=0;n<p_csv.length;n++){
+                    p_csv[n].innerHTML="";
+                }
+                const formData = new FormData();
+                const stuData = new FormData();
                 
+                //upload all students photo
+                for(var i=0;i<imgsUpload.files.length;i++){
+                    stuData.append("student_files",imgsUpload.files[i]);
+                }
+                
+                //upload company name, ctc, company logo and csv file
+                formData.append("csv_file",fileUpload.files[0]);
+                formData.append("company_name",companyN.value);
+                formData.append("ctc_value",ctc.value);
+                formData.append("logo_file", cLogo.files[0]);
+                axios.all([
+                    axios.post('http://localhost:5001/photos', stuData, {
+                    headers: {
+                      'Content-Type': 'multipart/form-data'
+                    }
+                    }),
+                    axios.post('http://localhost:5001/form', formData, {
+                        headers: {
+                        'Content-Type': 'multipart/form-data'
+                        }
+                    })
+                ])
+                .then(axios.spread((data1, data2) => {
+                    // Both requests are now complete
+                    console.log('data1', data1, 'data2', data2);
+                }));
+
+
+
+                
+                //store the div element in a variable
+                    
+                var mainDiv = document.getElementById("dvCSV");
+                mainDiv.innerHTML='';
                 
                 //comany logo input in template
                 var tc=document.getElementById("clogo");
@@ -46,19 +80,19 @@ window.addEventListener("load",function(){
                 tcn.innerHTML=companyN.value;
 
                 //company ctc input in template
-                if(ctc.value!=="" && isNumber){           
+                if(ctc.value!=="" ){           
                     var tctc1=document.getElementById("with");
-                tctc1.innerHTML="With a CTC of Rs."+ctc.value+" Lakhs per annum.";
+                tctc1.innerHTML="With a CTC of Rs."+ctc.value+" Lakhs per Annum.";
                 }
                 else{
                 var tctc2=document.getElementById("with");
-                tctc2.innerHTML=" ";
+                tctc2.innerHTML="";
                 }
                 
                 //read the csv file containing student list
                 var reader = new FileReader();
                 reader.onload = function(progressEvent) {
-                        
+                    
                         var file = this;
                         readCSV(file);              //reader calls the readCSV function with the csv file as the parameter
                 };
@@ -137,7 +171,7 @@ window.addEventListener("load",function(){
                 if(fileUpload.files.length===0){
                     p_csv[0].innerHTML="*File not uploaded";
                 }
-                if(imgsUpload.length===0){
+                if(imgsUpload.files.length===0){
                     p_csv[1].innerHTML="*Image Folder not uploaded";
                 }
                 if(companyN.value===""){
